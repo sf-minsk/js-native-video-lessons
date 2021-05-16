@@ -1,4 +1,5 @@
-const students = [
+
+export const students = [
     {
         name: "Bob",
         age: 22,
@@ -149,8 +150,10 @@ console.log(scoresSum)
 // и добавляет в каждому студенту свойство "friends",
 // значением которого является массив имён всех остальных студентов из массива,
 // за исключением собственного имени студента. Т.е. в друзьях у Боба Боба быть не должно.
-const addFriends = (students) => {
-   //..............................
+
+export const addFriends = (students) => {
+    return students.map(st => ({...st, friends: students.map(st => st.name).filter(name => name !== st.name)
+    }))
 }
 console.log(addFriends(students));
 
